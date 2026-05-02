@@ -1,0 +1,174 @@
+:root {
+  /* background-color */
+  --body-bg: hsl(0, 0%, 97%);
+  --card-bg: hsl(0, 0%, 100%);
+
+  /* Font size - 15px */
+  --body-fs: 0.9375rem;
+
+  /* font color */
+  --grey-500: hsl(234, 12%, 34%);
+  --grey-400: hsl(210, 6%, 44%);
+
+  /* font-family */
+  --poppins-ff: "Poppins", sans-serif;
+
+  /* fs-mobile */
+  --fs-mob-sm: 0.8rem;
+  --fs-mob-md: 1rem;
+  --fs-mob-lg: 1.2rem;
+
+  /* weights */
+  --fw-sm: 200;
+  --fw-md: 400;
+  --fw-lg: 600;
+
+  /* feture card top-borders */
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+
+  /* padding-gap */
+  --gap-sm: 0.5rem;
+  --pad-gap-sm: 1rem;
+  --pad-gap-md: 1.5rem;
+  --pad-gap-lg: 2rem;
+
+  /* margin */
+  --margin-sm: 1rem;
+
+  /* radius */
+  --radius-sm: 0.5rem;
+
+  /* card box shadow color */
+  --box-shadow: rgba(105, 112, 119, 0.3);
+}
+
+/* Basic Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pad-gap-lg);
+  padding: var(--pad-gap-lg) var(--pad-gap-md);
+
+  font-size: var(--body-fs);
+  font-family: var(--poppins-ff);
+  color: var(--grey-400);
+  font-weight: var(--fw-md);
+
+  background-color: var(--body-bg);
+}
+
+/* ---- Header ---- */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pad-gap-sm);
+
+  text-align: center;
+  max-width: 18rem;
+  margin: 0 auto;
+}
+
+.header__title {
+  font-weight: var(--fw-sm);
+  font-size: var(--fs-mob-lg);
+}
+
+.header__title--mark {
+  color: var(--grey-500);
+  font-weight: var(--fw-lg);
+}
+
+.header__description,
+.feature-box__card-description {
+  font-size: var(--fs-mob-sm);
+}
+
+/* ---- Main - Section > cards ---- */
+
+.feature-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.feature-box__cards-section,
+.feature-card,
+.feature-box__multi-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pad-gap-lg);
+}
+
+.feature-box__cards-section {
+  max-width: 17rem;
+}
+
+.feature-card {
+  gap: var(--gap-sm);
+  padding: var(--pad-gap-sm) var(--pad-gap-sm) var(--pad-gap-md);
+
+  background-color: var(--card-bg);
+  border-radius: var(--radius-sm);
+  border-top: 5px solid;
+
+  box-shadow: 0 15px 20px var(--box-shadow);
+  transition: all 0.3s ease-in-out;
+}
+
+.feature-card:active {
+  transform: scale(1.1);
+}
+
+/* Only apply the hover effect if the device uses a real mouse pointer */
+@media (hover: hover) {
+  .feature-card:hover {
+    transform: scale(1.1);
+  }
+}
+
+.feature-box__card-title {
+  font-size: var(--fs-mob-md);
+  color: var(--grey-500);
+  font-weight: var(--fw-lg);
+}
+
+.feature-box__card-img {
+  margin-top: var(--margin-sm);
+  align-self: flex-end;
+}
+
+/* ---- Card top border */
+
+.feature-box__card-supervisor {
+  border-color: var(--cyan);
+}
+.feature-box__card-builder {
+  border-color: var(--red);
+}
+.feature-box__card-karma {
+  border-color: var(--orange);
+}
+.feature-box__card-calculator {
+  border-color: var(--blue);
+}
