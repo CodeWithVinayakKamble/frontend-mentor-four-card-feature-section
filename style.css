@@ -13,10 +13,10 @@
   /* font-family */
   --poppins-ff: "Poppins", sans-serif;
 
-  /* fs-mobile */
-  --fs-mob-sm: 0.8rem;
-  --fs-mob-md: 1rem;
-  --fs-mob-lg: 1.2rem;
+  /* fs-fluid-mobile-desktop */
+  --fs-fluid-sm: clamp(0.8rem, 2.5vw, 1rem);
+  --fs-fluid-md: clamp(1rem, 3vw, 1.2rem);
+  --fs-fluid-lg: clamp(1.2rem, 3.5vw, 1.5rem);
 
   /* weights */
   --fw-sm: 200;
@@ -83,23 +83,24 @@ body {
   gap: var(--pad-gap-sm);
 
   text-align: center;
-  max-width: 18rem;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 .header__title {
   font-weight: var(--fw-sm);
-  font-size: var(--fs-mob-lg);
+  font-size: var(--fs-fluid-lg);
 }
 
 .header__title--mark {
+  display: block;
   color: var(--grey-500);
   font-weight: var(--fw-lg);
 }
 
 .header__description,
 .feature-box__card-description {
-  font-size: var(--fs-mob-sm);
+  font-size: var(--fs-fluid-sm);
 }
 
 /* ---- Main - Section > cards ---- */
@@ -141,6 +142,7 @@ body {
 }
 
 /* Only apply the hover effect if the device uses a real mouse pointer */
+
 @media (hover: hover) {
   .feature-card:hover {
     transform: scale(1.1);
@@ -148,7 +150,7 @@ body {
 }
 
 .feature-box__card-title {
-  font-size: var(--fs-mob-md);
+  font-size: var(--fs-fluid-md);
   color: var(--grey-500);
   font-weight: var(--fw-lg);
 }
@@ -171,4 +173,40 @@ body {
 }
 .feature-box__card-calculator {
   border-color: var(--blue);
+}
+
+/* Desktop layout adjustment */
+
+@media (min-width: 50em) {
+  body {
+    padding: var(--pad-gap-lg);
+    gap: var(--pad-gap-sm);
+  }
+
+  .header {
+    max-width: 25rem;
+  }
+
+  .feature-box {
+    flex: 1;
+    width: 100%;
+    max-width: 65rem;
+  }
+
+  .feature-box__cards-section {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    /* shorthand of justify-content && align-items */
+    place-items: center;
+  }
+}
+
+/* Reduced Motion Accessibility for medical conditions (like epilepsy or vertigo  */
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card {
+    transition: none;
+  }
 }
